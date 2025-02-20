@@ -7,46 +7,48 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>TextPilot</h1>
-  <!-- <textarea id="userInput" rows="3" placeholder="Enter task... (Shift + Enter for new line)"></textarea>
-  <button id="addTaskButton">+</button> -->
+  <h1 class="textPilot">TextPilot</h1>
 
   <section class="reservation">
-    <h4>Reservation Request</h4>
-    <p id="reservationText">
+    <div class="section-header">
+      <h4>Reservation Request</h4>
+      <button class="copyButton">Copy</button>
+    </div>
+    <p class="text-content">
       Hi team! Can you please reserve this item for a customer?<br><br>
       Name :<br>
       Phone Number :<br>
-      Item Code :<br>
+      Item Code :<br><br>
+      Thank you in advance!
     </p>
-    <button id="copyButton">Copy</button>
-    <span id="copyMessage" style="display: none;">Copied!</span>
+    <span class="copyMessage">Copied!</span>
   </section>
 
   <section class="interstore">
-    <p id="reservationText">
+    <div class="section-header">
       <h4>Interstore Request</h4>
+      <button class="copyButton">Copy</button>
+    </div>
+    <p class="text-content">
       Hi team! We would like to request for an interstore.<br><br>
-      Item Code :<br>
+      Item Code :<br><br>
+      Thank you in advance!
     </p>
-    <button id="copyButton">Copy</button>
-    <span id="copyMessage" style="display: none;">Copied!</span>
+    <span class="copyMessage">Copied!</span>
   </section>
 
   <section class="notCarry">
-    <h4>Item not carried</h4>
-    <p id="reservationText">
+    <div class="section-header">
+      <h4>Item not carried</h4>
+      <button class="copyButton">Copy</button>
+    </div>
+    <p class="text-content">
       Hi team! We would like to send an item that we do not carry here.<br><br>
-      Item Code :<br>
-      Please let us know if you can accept it. Thank you!<br>
+      Item Code :<br><br>
+      Please let us know if you can accept it. Thank you in advance!<br>
     </p>
-    <button id="copyButton">Copy</button>
-    <span id="copyMessage" style="display: none;">Copied!</span>
+    <span class="copyMessage">Copied!</span>
   </section>
-
-
-  
-  <div id="outputContainer"></div> <!-- ✅ Make sure this exists -->
 
   <script src="script.js"></script>
 </body>

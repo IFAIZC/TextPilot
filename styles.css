@@ -1,15 +1,71 @@
-html, body {
-  width: 350px; 
-  max-height: 400px; 
-  overflow-y: auto; /* Enables scrolling when content overflows */
+/* Global Styles */
+body {
+  width: 300px;
+  height: 480px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 10px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevents popup scaling */
 }
 
-/* 
-button {
-  color: rgb(255, 255, 255);
-  background-color: aqua;
+/* Section Styling */
+section {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header and Copy Button Alignment */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Copy Button */
+.copyButton {
+  background: #007bff;
+  color: white;
   border: none;
-  border-radius: 10px;
-  width: 20px;
-  height: 20px;
-} */
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s;
+}
+
+.copyButton:hover {
+  background: #0056b3;
+}
+
+/* Text Content with Scrollable Container */
+.text-content {
+  font-size: 12px;
+  color: #555;
+  margin-top: 5px;
+  max-height: 70px; /* Prevents popup expansion */
+  overflow-y: auto; /* Enables scrolling */
+}
+
+/* Copied Message */
+.copyMessage {
+  display: none;
+  font-size: 10px;
+  color: green;
+  margin-left: 5px;
+}
+
+.textPilot {
+  margin: 0;
+  margin-bottom: 10px;
+}
