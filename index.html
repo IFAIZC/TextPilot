@@ -8,10 +8,10 @@
 </head>
 <body>
   <h1>TextPilot</h1>
-  <input type="text" id="userInput" placeholder="Enter a task">
-    <button onclick="displayText()">+</button>
+  <textarea id="userInput" rows="3" placeholder="Enter task... (Shift + Enter for new line)"></textarea>
+  <button id="addTaskButton">+</button>
 
-    <p id="outputText"> </p>
+  <div id="outputContainer"></div> <!-- ✅ Make sure this exists -->
 
   <script src="script.js"></script>
 </body>
