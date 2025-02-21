@@ -1,25 +1,24 @@
-// DOMContentLoaded ensures the script runs only after the HTML is fully loaded.
 document.addEventListener("DOMContentLoaded", function () { 
-  // Select all copy buttons
-  const copyButtons = document.querySelectorAll(".copyButton");
+  const copyButtons = document.querySelectorAll(".copyButton"); // Select all copy buttons
 
-  // Loop through each button using a for loop
   for (let i = 0; i < copyButtons.length; i++) {
     const button = copyButtons[i]; // Get the current button
 
+    // Attach click event listener to each button
     button.addEventListener("click", function () { 
-      const section = button.closest("section"); // Get the parent section
-      const textContent = section.querySelector(".text-content").innerText; // Get text
-      const copyMessage = section.querySelector(".copyMessage"); // Find the "Copied!" message
+      const section = button.closest("section"); // Find the closest section
+      const text = section.querySelector(".text-content").innerText; // Get text when clicked
+      const message = section.querySelector(".copyMessage"); // Get message when clicked
 
-      // Copy to clipboard
-      navigator.clipboard.writeText(textContent).then(() => {
-        copyMessage.style.display = "inline"; // Show message
-        setTimeout(() => {
-          copyMessage.style.display = "none"; // Hide after 2s
+      // Copy function & display "Copied!"
+      navigator.clipboard.writeText(text).then(function () { 
+        message.style.display = "inline"; // Show "Copied!"
+        setTimeout(function () {
+          message.style.display = "none"; // Hide after 2s
         }, 2000);
-      }).catch(err => console.error("Copy failed:", err));
+      }).catch(function () {
+        alert("Failed to copy text.");
+      });
     });
   }
 });
-
