@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener('input', (event) => {
     const target = event.target;
     const isInputField = target.tagName.toLowerCase() === 'input' || target.tagName.toLowerCase() === 'textarea';
-    const isWhatsAppInput = target.classList.contains('lexical-rich-text-input'); // WhatsApp Web input field class
+    const isWhatsAppInput = target.classList.contains('selectable-tag'); // WhatsApp Web input field class
     if (target.tagName.toLowerCase() === 'input' || target.tagName.toLowerCase() === 'textarea') {
       const query = target.value.toLowerCase();
       let suggestionsDiv = document.getElementById('suggestionsDiv');
