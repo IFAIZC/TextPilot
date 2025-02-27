@@ -73,3 +73,22 @@ h4 {
 .button-add {
   margin-bottom: 10px;
 }
+
+#suggestionsDiv {
+  border: 1px solid #ccc; /* Newly added: Adds a border around the suggestions container */
+  max-height: 150px; /* Newly added: Limits the height of the suggestions box */
+  overflow-y: auto; /* Newly added: Enables scrolling for overflowing suggestions */
+  position: absolute; /* Newly added: Ensures the suggestions appear in a fixed position */
+  background-color: white; /* Newly added: Sets background color for readability */
+  width: calc(100% - 20px); /* Newly added: Adjusts width dynamically */
+}
+
+#suggestionsDiv div {
+  padding: 10px; /* Newly added: Adds spacing inside each suggestion item */
+  cursor: pointer; /* Newly added: Indicates interactivity */
+}
+
+#suggestionsDiv div:hover {
+  background-color: #f0f0f0; /* Newly added: Changes background on hover for better UX */
+}
+

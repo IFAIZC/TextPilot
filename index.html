@@ -18,9 +18,10 @@
   <section class="reservation">
     <div class="section-header">
       <h4>Reservation Request</h4>
-      <button class="copyButton" id="copyButton">Copy</button>
+      <button class="copyButton" id="copyReservationButton">Copy</button> 
+      <!-- Newly added: Changed the ID from a generic one to a unique ID (copyReservationButton) -->
     </div>
-    <p class="text-content" id="text-content">
+    <p class="text-content" id="reservationText">
       Hi team! Can you please reserve this item for a customer?<br><br>
       Name :<br>
       Phone Number :<br>
@@ -30,15 +31,14 @@
     <span class="copyMessage">Copied!</span>
   </section>
 
-
-
   <!-- interstore section -->
   <section class="interstore">
     <div class="section-header">
       <h4>Interstore Request</h4>
-      <button class="copyButton" id="copyButton">Copy</button>
+      <button class="copyButton" id="copyInterstoreButton">Copy</button> 
+      <!-- Newly added: Changed the ID to a unique one (copyInterstoreButton) -->
     </div>
-    <p class="text-content" id="text-content">
+    <p class="text-content" id="interstoreText">
       Hi team! We would like to request for an interstore.<br><br>
       Item Code :<br><br>
       Thank you in advance!
@@ -46,21 +46,23 @@
     <span class="copyMessage">Copied!</span>
   </section>
 
-
-
   <!-- notCarry section -->
   <section class="notCarry">
     <div class="section-header">
       <h4>Item not carried</h4>
-      <button class="copyButton" id="copyButton">Copy</button>
+      <button class="copyButton" id="copyNotCarryButton">Copy</button> 
+      <!-- Newly added: Changed the ID to a unique one (copyNotCarryButton) -->
     </div>
-    <p class="text-content" id="text-content">
+    <p class="text-content" id="notCarryText">
       Hi team! We would like to send an item that we do not carry here.<br><br>
       Item Code :<br><br>
       Please let us know if you can accept it. Thank you in advance!<br>
     </p>
     <span class="copyMessage">Copied!</span>
   </section>
+
+  <input type="text"> 
+  <!-- Newly added: Input field at the bottom (not labeled yet) -->
 
   <!-- JS link -->
   <script src="script.js"></script>

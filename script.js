@@ -21,6 +21,65 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Predefined text storage for autocomplete suggestions (newly added)
+  const predefinedTexts = [
+    document.getElementById('reservationText').innerText.trim(),
+    document.getElementById('interstoreText').innerText.trim(),
+    document.getElementById('notCarryText').innerText.trim()
+  ];
+
+  // Autocomplete functionality for input fields (newly added)
+  document.addEventListener('input', (event) => {
+    const target = event.target;
+    if (target.tagName.toLowerCase() === 'input' || target.tagName.toLowerCase() === 'textarea') {
+      const query = target.value.toLowerCase();
+      let suggestionsDiv = document.getElementById('suggestionsDiv');
+
+      if (!suggestionsDiv) {
+        suggestionsDiv = document.createElement('div');
+        suggestionsDiv.id = 'suggestionsDiv';
+        document.body.appendChild(suggestionsDiv);
+      }
+
+      // Style and position the suggestions div dynamically (newly added)
+      suggestionsDiv.innerHTML = '';
+      suggestionsDiv.style.position = 'absolute';
+      suggestionsDiv.style.border = '1px solid #ccc';
+      suggestionsDiv.style.backgroundColor = 'white';
+      suggestionsDiv.style.zIndex = '1000';
+      suggestionsDiv.style.maxHeight = '150px';
+      suggestionsDiv.style.overflowY = 'auto';
+      suggestionsDiv.style.width = `${target.offsetWidth}px`;
+      suggestionsDiv.style.top = `${target.offsetTop + target.offsetHeight}px`;
+      suggestionsDiv.style.left = `${target.offsetLeft}px`;
+
+      if (query) {
+        // Filter suggestions based on user input (newly added)
+        const suggestions = predefinedTexts.filter(text => text.toLowerCase().includes(query));
+        suggestions.forEach(suggestion => {
+          const suggestionElement = document.createElement('div');
+          suggestionElement.textContent = suggestion;
+          suggestionElement.style.padding = '10px';
+          suggestionElement.style.cursor = 'pointer';
+          suggestionElement.addEventListener('click', () => {
+            target.value = suggestion; // Auto-fill input when clicked
+            suggestionsDiv.innerHTML = '';
+          });
+          suggestionsDiv.appendChild(suggestionElement);
+        });
+      }
+
+      // Automatically hide suggestions when focus is lost (newly added)
+      target.addEventListener('blur', () => {
+        setTimeout(() => {
+          if (document.body.contains(suggestionsDiv)) {
+            suggestionsDiv.innerHTML = '';
+          }
+        }, 100);
+      });
+    }
+  });
 });
 
 // adding custom user input
