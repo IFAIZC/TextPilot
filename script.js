@@ -32,14 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Autocomplete functionality for input fields (newly added)
   document.addEventListener('input', (event) => {
     const target = event.target;
+    const isInputField = target.tagName.toLowerCase() === 'input' || target.tagName.toLowerCase() === 'textarea';
+    const isWhatsAppInput = target.classList.contains('copyable-text'); // WhatsApp Web input field class
     if (target.tagName.toLowerCase() === 'input' || target.tagName.toLowerCase() === 'textarea') {
       const query = target.value.toLowerCase();
       let suggestionsDiv = document.getElementById('suggestionsDiv');
 
-      if (!suggestionsDiv) {
-        suggestionsDiv = document.createElement('div');
-        suggestionsDiv.id = 'suggestionsDiv';
-        document.body.appendChild(suggestionsDiv);
+      if (isInputField || isWhatsAppInput) {
+        const query = target.value.toLowerCase();
+        let suggestionsDiv = document.getElementById('suggestionsDiv');
       }
 
       // Style and position the suggestions div dynamically (newly added)
