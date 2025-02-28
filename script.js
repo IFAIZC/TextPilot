@@ -23,6 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// get modal elements
+let modal = document.getElementById("modal");
+let openModalBtn = document.getElementById("open-modal");
+let closeModalBtn = document.getElementById("close-button");
+
+// functions to make buttons/modal functional
+function openModal() {
+  modal.style.display = "flex";
+}
+
+function hideModal() {
+  modal.style.display = "none";
+}
+
+// event listeners
+openModalBtn.addEventListener("click", openModal);
+closeModalBtn.addEventListener("click", hideModal);
+
+
 // adding custom user input
 
 // function submitInput() {

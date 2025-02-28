@@ -9,10 +9,25 @@
 <body>
 
   <!-- title -->
-  <h1 class="textPilot">TextPilot</h1>
-  <button class="button-add">+</button>
+  <div class="top-section">
+    <h1 class="textPilot">TextPilot</h1>
+    <button class="button-add" id="open-modal">+</button>
+  </div>
 
-  <!-- To add popup for title and input to add more pre-written note. -->
+  <!-- modal popup -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <!-- will call close-button in JS -->
+      <span class="close-button" id="close-button">&times;</span>
+      <h4>Add notes</h4>
+      <label>Title:</label>
+      <input type="text" id="title" placeholder="Title">
+      <label>Body:</label>
+      <textarea id="bodyInput" placeholder="Body here"></textarea>
+      <button id="saveNote">Save</button>
+    </div>
+  </div>
+
 
   <!-- reservation section -->
   <section class="reservation">
