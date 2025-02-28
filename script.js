@@ -1,3 +1,4 @@
+// copy and paste function
 document.addEventListener("DOMContentLoaded", function () { 
   const copyButtons = document.querySelectorAll(".copyButton"); // Select all copy buttons
 
@@ -37,49 +38,43 @@ function hideModal() {
   modal.style.display = "none";
 }
 
+document.getElementById("modal").addEventListener("click", function (event) {
+  if (event.target === this) {
+    this.style.display = "none"; // Hide modal
+  }
+});
+
 // event listeners
 openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", hideModal);
 
 
-// adding custom user input
+// taking user input from modal
 
-// function submitInput() {
+// user to type in title
+// user to type in content
+// user press save button
+// save button will then store the inputs in a chrome.storage.local
+// we then retrive the chrome.storage.local to display it on the extension.
 
-//   let title = document.getElementById("title").value;
-//   let input = document.getElementById("input").value;
+// declaring value to a variable. able to recall this when needed.
 
-//   if (title === "" || input === "") {
-//     alert("Please fill in both fields!");
-//     return;
-//   }
-
-//   // Create a new <p> element
-//   let p = document.createElement("p");
-//   p.innerHTML = `<strong>${title}</strong> ${input} `;
-
-//   // Pushing new inputs to the arrays (customInput)
-//   // let newEntry = { title : title, content: input };
-//   // customInput.push(newEntry);
-
-//   // Create a "Copy" button
-//   let copyButton = document.createElement("button");
-//   copyButton.textContent = "Copy";
-//   copyButton.addEventListener("click", function () {
-//       navigator.clipboard.writeText(`${input}`);
-//       alert("Copied to clipboard!");
-//   });
-
-//   // Append button to <p>
-//   p.appendChild(copyButton);
-
-//   // Append <p> to the output div
-//   document.getElementById("output").appendChild(p);
+// to take value from user inputs and display it on the html
+function submitUserInputModal() {
   
-//   // Clear input fields after submission
-//   document.getElementById("title").value = "";
-//   document.getElementById("input").value = "";
-// }
+  // identifying user input value into a variable
+  let userInputTitle = document.getElementById("title-input").value;
+  let userInputContent = document.getElementById("bodyInput").value;
 
-// // making the addButton runs the function submitInput()
-// document.getElementById("addButton").addEventListener("click", submitInput);
+  document.getElementById("output").innerHTML += `
+  <strong>${userInputTitle}</strong> <br>
+  ${userInputContent} <br>
+  `
+
+  // empty inputs once input is submitted
+  userInputTitle = document.getElementById("title-input").value = "";
+  userInputContent = document.getElementById("bodyInput").value = "";
+}
+
+document.getElementById("saveNote").addEventListener("click", submitUserInputModal);
+

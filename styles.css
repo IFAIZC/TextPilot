@@ -22,7 +22,8 @@ section {
 /* top section */
 .top-section {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Header and Copy Button Alignment */
@@ -76,14 +77,23 @@ h4 {
   margin-bottom: 10px;
 }
 
+/* + button */
 .button-add {
   margin-bottom: 10px;
-  height: 25px;
-  width: 25px;
-  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
   text-align: center;
   justify-content: center;
   align-items: center;
+  border-style: none;
+  background-color: #007bff;
+  color: white;
+  transition: background 0.3s;
+}
+
+.button-add:hover {
+  background: #0056b3;
 }
 
 /* Modal (centered on screen) */
@@ -129,13 +139,13 @@ h4 {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 14px;
 }
 
 /* Fix textarea alignment */
 #bodyInput {
+  font-family: Arial, sans-serif; /* Override monospace */
   resize: none;
-  height: 100px; /* Fixed height */
+  height: 100px;
   max-height: 150px;
 }
 
