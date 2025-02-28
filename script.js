@@ -1,4 +1,4 @@
-// copy and paste function
+// COPY PASTE FUNCTION
 document.addEventListener("DOMContentLoaded", function () { 
   const copyButtons = document.querySelectorAll(".copyButton"); // Select all copy buttons
 
@@ -24,7 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// get modal elements
+
+
+
+
+
+// CREATING MODAL POPUP
 let modal = document.getElementById("modal");
 let openModalBtn = document.getElementById("open-modal");
 let closeModalBtn = document.getElementById("close-button");
@@ -43,23 +48,16 @@ document.getElementById("modal").addEventListener("click", function (event) {
     this.style.display = "none"; // Hide modal
   }
 });
-
 // event listeners
 openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", hideModal);
 
 
-// taking user input from modal
 
-// user to type in title
-// user to type in content
-// user press save button
-// save button will then store the inputs in a chrome.storage.local
-// we then retrive the chrome.storage.local to display it on the extension.
 
-// declaring value to a variable. able to recall this when needed.
 
-// to take value from user inputs and display it on the html
+
+// POPUP USER INPUT
 function submitUserInputModal() {
   
   // identifying user input value into a variable
