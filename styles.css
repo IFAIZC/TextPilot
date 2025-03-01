@@ -2,6 +2,8 @@
 body {
   width: 300px;
   height: 480px;
+  max-height: 480px;
+  min-height: 480px;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   padding: 10px;
@@ -45,7 +47,7 @@ h4 {
   color: white;
   border: none;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 12px;
   transition: background 0.3s;
@@ -161,14 +163,27 @@ h4 {
 /* Save button */
 #saveNote {
   margin-top: 10px;
-  background-color: #3498db;
+  width: 80px;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 #saveNote:hover {
-  background-color: #2980b9;
+  background-color: #0056b3;
+}
+
+/* NEW INPUT */
+/* same css style as SECTION above */
+.section-card {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }

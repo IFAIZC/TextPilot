@@ -64,15 +64,39 @@ function submitUserInputModal() {
   let userInputTitle = document.getElementById("title-input").value;
   let userInputContent = document.getElementById("bodyInput").value;
 
-  document.getElementById("output").innerHTML += `
-  <strong>${userInputTitle}</strong> <br>
-  ${userInputContent} <br>
-  `
+  // handling egde cases if input is empty
+  if (userInputTitle === "" || userInputContent === ""){
+    alert("Please fill in the title & body!");
+    return;
+  }
 
-  // empty inputs once input is submitted
-  userInputTitle = document.getElementById("title-input").value = "";
-  userInputContent = document.getElementById("bodyInput").value = "";
+  // creaating new div element on noteDiv , styling it with section-card via css
+  let noteDiv = document.createElement("div");
+  noteDiv.classList.add("section-card");
+
+  // Title Section
+  let titleDiv = document.createElement("div");
+  titleDiv.classList.add("section-header"); //style on css
+  titleDiv.innerHTML = `<h4>${userInputTitle}</h4>`;
+
+  // Content Section
+  let contentDiv = document.createElement("div");
+  contentDiv.classList.add("text-content"); //style on css
+  contentDiv.innerHTML = userInputContent.replace(/\n/g, "<br>");
+
+  // Append title and content to noteDiv
+  noteDiv.appendChild(titleDiv);
+  noteDiv.appendChild(contentDiv);
+
+  // append noteDiv to output container
+  document.getElementById("output").appendChild(noteDiv);
+
+  // clear input fields
+  document.getElementById("title-input").value = "";
+  document.getElementById("bodyInput").value = "";
+
+  // hides the popup once submitted.
+  hideModal()
 }
 
 document.getElementById("saveNote").addEventListener("click", submitUserInputModal);
-
