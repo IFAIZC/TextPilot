@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 // CREATING MODAL POPUP
 let modal = document.getElementById("modal");
 let openModalBtn = document.getElementById("open-modal");
@@ -51,7 +50,6 @@ document.getElementById("modal").addEventListener("click", function (event) {
 // event listeners
 openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", hideModal);
-
 
 
 
@@ -97,6 +95,9 @@ function submitUserInputModal() {
 
   // hides the popup once submitted.
   hideModal()
+
+  // TBA COPY BUTTON FEATURE
+  // TBA CHROME.STORAGE.LOCAL
 }
 
 document.getElementById("saveNote").addEventListener("click", submitUserInputModal);
