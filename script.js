@@ -82,9 +82,25 @@ function submitUserInputModal() {
   contentDiv.classList.add("text-content"); //style on css
   contentDiv.innerHTML = userInputContent.replace(/\n/g, "<br>");
 
+  // Copy Button
+  let copyButton = document.createElement("button");
+  copyButton.textContent = "Copy";
+  copyButton.classList.add("copyButton"); // Style this in CSS
+
+  // Copy function
+  copyButton.addEventListener("click", function () {
+    let textToCopy = userInputTitle + "\n\n" + userInputContent;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      alert("Note copied to clipboard!");
+    }).catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+  });
+
   // Append title and content to noteDiv
   noteDiv.appendChild(titleDiv);
   noteDiv.appendChild(contentDiv);
+  noteDiv.appendChild(copyButton);
 
   // append noteDiv to output container
   document.getElementById("output").appendChild(noteDiv);
@@ -97,6 +113,8 @@ function submitUserInputModal() {
   hideModal()
 
   // TBA COPY BUTTON FEATURE
+
+
   // TBA CHROME.STORAGE.LOCAL
 }
 
