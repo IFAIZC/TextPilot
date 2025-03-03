@@ -73,19 +73,27 @@ function submitUserInputModal() {
   let noteDiv = document.createElement("div");
   noteDiv.classList.add("section-card");
 
-  // Title Container (Holds Title + Copy Button)
+  // Title Container (Holds Title + Buttons)
   let titleContainer = document.createElement("div");
   titleContainer.classList.add("section-header"); // Style in CSS
 
   // Title Section
   let titleDiv = document.createElement("div");
-  titleDiv.classList.add("section-header"); // Style in CSS
   titleDiv.innerHTML = `<h4>${userInputTitle}</h4>`;
+
+  // Button Container (Wraps Delete & Copy Buttons)
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container"); // Style in CSS
+
+  // Delete Button
+  let deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.classList.add("deleteButton");
 
   // Copy Button
   let copyButton = document.createElement("button");
   copyButton.textContent = "Copy";
-  copyButton.classList.add("copyButton"); // Style this in CSS
+  copyButton.classList.add("copyButton");
 
   // Copy function
   copyButton.addEventListener("click", function () {
@@ -104,9 +112,13 @@ function submitUserInputModal() {
     });
   });
 
-  // Append Title and Copy Button to Title Container
+  // Append buttons to buttonContainer
+  buttonContainer.appendChild(deleteButton);
+  buttonContainer.appendChild(copyButton);
+
+  // Append Title and Button Container to Title Container
   titleContainer.appendChild(titleDiv);
-  titleContainer.appendChild(copyButton);
+  titleContainer.appendChild(buttonContainer);
 
   // Content Section
   let contentDiv = document.createElement("div");
@@ -126,9 +138,6 @@ function submitUserInputModal() {
 
   // hides the popup once submitted.
   hideModal()
-
-  // TBA COPY BUTTON FEATURE
-
 
   // TBA CHROME.STORAGE.LOCAL
 }

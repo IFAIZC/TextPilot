@@ -57,6 +57,26 @@ h4 {
   background: #0056b3;
 }
 
+.deleteButton {
+  background: #de2121;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s;
+}
+
+.deleteButton:hover {
+  background: #b30000;
+}
+
+.button-container {
+  display: flex;
+  gap: 5px;
+}
+
 /* Text Content with Scrollable Container */
 .text-content {
   font-size: 12px;
@@ -185,5 +205,4 @@ h4 {
   border-radius: 8px;
   margin-bottom: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
 }
