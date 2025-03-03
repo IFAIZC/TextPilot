@@ -9,13 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () { 
       const section = button.closest("section"); // Find the closest section
       const text = section.querySelector(".text-content").innerText; // Get text when clicked
-      const message = section.querySelector(".copyMessage"); // Get message when clicked
 
       // Copy function & display "Copied!"
       navigator.clipboard.writeText(text).then(function () { 
-        message.style.display = "inline"; // Show "Copied!"
+        button.innerText = "Copied"; // Show "Copied!"
+        button.disabled = true; // Optional: Disable button after copying
+
         setTimeout(function () {
-          message.style.display = "none"; // Hide after 2s
+          button.textContent = "Copy"; // Hide after 2s
         }, 2000);
       }).catch(function () {
         alert("Failed to copy text.");
@@ -68,19 +69,18 @@ function submitUserInputModal() {
     return;
   }
 
-  // creaating new div element on noteDiv , styling it with section-card via css
+  // Creating new div element on noteDiv, styling it with section-card via CSS
   let noteDiv = document.createElement("div");
   noteDiv.classList.add("section-card");
 
+  // Title Container (Holds Title + Copy Button)
+  let titleContainer = document.createElement("div");
+  titleContainer.classList.add("section-header"); // Style in CSS
+
   // Title Section
   let titleDiv = document.createElement("div");
-  titleDiv.classList.add("section-header"); //style on css
+  titleDiv.classList.add("section-header"); // Style in CSS
   titleDiv.innerHTML = `<h4>${userInputTitle}</h4>`;
-
-  // Content Section
-  let contentDiv = document.createElement("div");
-  contentDiv.classList.add("text-content"); //style on css
-  contentDiv.innerHTML = userInputContent.replace(/\n/g, "<br>");
 
   // Copy Button
   let copyButton = document.createElement("button");
@@ -89,18 +89,33 @@ function submitUserInputModal() {
 
   // Copy function
   copyButton.addEventListener("click", function () {
-    let textToCopy = userInputTitle + "\n\n" + userInputContent;
+    let textToCopy = userInputContent;
     navigator.clipboard.writeText(textToCopy).then(() => {
-      alert("Note copied to clipboard!");
+      copyButton.textContent = "Copied!"; // Change button text
+      copyButton.disabled = true; // Optional: Disable button after copying
+
+      // Reset button text after 2 seconds
+      setTimeout(() => {
+        copyButton.textContent = "Copy";
+        copyButton.disabled = false; // Re-enable button
+      }, 2000);
     }).catch(err => {
       console.error("Failed to copy: ", err);
     });
   });
 
-  // Append title and content to noteDiv
-  noteDiv.appendChild(titleDiv);
+  // Append Title and Copy Button to Title Container
+  titleContainer.appendChild(titleDiv);
+  titleContainer.appendChild(copyButton);
+
+  // Content Section
+  let contentDiv = document.createElement("div");
+  contentDiv.classList.add("text-content"); // Style in CSS
+  contentDiv.innerHTML = userInputContent.replace(/\n/g, "<br>");
+
+  // Append everything to noteDiv
+  noteDiv.appendChild(titleContainer); // Instead of titleDiv alone
   noteDiv.appendChild(contentDiv);
-  noteDiv.appendChild(copyButton);
 
   // append noteDiv to output container
   document.getElementById("output").appendChild(noteDiv);
