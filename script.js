@@ -106,7 +106,7 @@ function submitUserInputModal() {
       setTimeout(() => {
         copyButton.textContent = "Copy";
         copyButton.disabled = false; // Re-enable button
-      }, 2000);
+      }, 1000);
     }).catch(err => {
       console.error("Failed to copy: ", err);
     });
@@ -140,6 +140,7 @@ function submitUserInputModal() {
   hideModal()
 
   // TBA CHROME.STORAGE.LOCAL
+  // TO BE CONTINUE ...
 }
 
 document.getElementById("saveNote").addEventListener("click", submitUserInputModal);
